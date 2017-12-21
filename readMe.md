@@ -27,4 +27,4 @@ player 1-be Freddy beating Jason to see a quote from elm st. movies to declare.
 player 2-Be Jason-beating Freddy to generate a quote Friday movies to declare.
 objective of players to is beat each other in a “Freddy vs. Jason” tennis match.
 
-![Alt singlePlayer](images/shark.jpeg) ![Alt stretchGoal](images/freddy.jpeg)
+![Alt singlePlayer](images/shark.png)  ![Alt stretchGoal](images/freddy.png)
