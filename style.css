@@ -6,3 +6,16 @@ display: block;
 body{
   margin: 0;
 }
+
+.player1 {
+  height: 220px;
+  width: 20px;
+  background-color: pink;
+
+}
+
+.player2 {
+  height: 220px;
+  width: 20px;
+  background-color: red;
+}
