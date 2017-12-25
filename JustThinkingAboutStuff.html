@@ -1,23 +1,21 @@
-<!--
-each player use two keys to move sprite up and down.
+event listeners!!!! same as with js racer but keydown will move up and down instead of horizontally... -  and + indicate vertical mvmt. eg: -10 would move ten pixels up and +10 moves 10 px down.
 
-the objective is to have the ball bounce off of sprite and launch it to opposing player
-look at js racer for the player movements and find out how to apply that movement vertically, instead of horizontally.
 
-create score board that logs every time a player misses. if plater one misses, player two gets a point.
-give players three chances to miss. eg: if player one misses three times, alert that player two wins.
+handling the paddles
 
-Huge focus made on the ball's animation trajectory.
-when ball hits a paddle, launch a random angle away from padd;e that hit it. repeat process when second player hits bapl with paddle.
+function movePAddle  () {
+  document.addEventListener('keypress', (event) => {
+    if (event.key === 'q') {
+      player1 = player1 + 15;  this makes it move right. trying to find exactly how to make it move up
 
- reminder to me: I know design is super tempting, but don't you dare get wrapped up in that before the game is functional. DON'T YOU DARE.
+      i think it would be player1 -= 15;
 
- watching the third video of the canvas tutorial, bounce off of the side of the screen is mentioned at the 5-sh minute mark.
+handling the ball
+not sure stylesheet
 
- invoke ball animation with a click event. choose math.random direction to start. when ball hits....
- if ball hit is equal to "name of sprite ID", then bounce back at random.
+handling the scoreboard
 
- else, opposing player scores a point
+....if statement
 
-use div as paddle and animate ball w/ canvas
--->
+
+make players out of divs? and ball is canvas
