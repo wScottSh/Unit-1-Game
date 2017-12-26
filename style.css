@@ -1,25 +1,30 @@
+#player1 {
+    position:absolute;
+    left:40%;
+    top:0px;
+    width:250px;
+    height:15px;
+    background-color:black;
 
 
-body{
-  margin: 0;
 }
 
-#player1 {
-position:absolute;
-left:0px;
-top:310px;
-width:10px;
-height:150px;
-background-color:red;
+#ball {
+    position: absolute;
+    height:50px;
+    width: 50px;
+    background-color: #f40ce5 ;
+    top: 400px;
+    left: 50%;
+    border-radius: 50%;
 
 }
 
 #player2 {
-position:absolute;
-right:0px;
-top:310px;
-width:10px;
-height:150px;
-background-color:black;
-
+    position:absolute;
+    right:40%;
+    bottom: 0px;
+    width:250px;
+    height:15px;
+    background-color:black;
 }
