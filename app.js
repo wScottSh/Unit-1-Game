@@ -1,27 +1,89 @@
-//defining variables(players, ball)
-const player1 = document.getElementById('player1');
-const player2 = document.getElementById('player2');
-const player2 = document.getElementById('ball');
-
-//starting position of players and ball
-//hard-coded position. could not use percentage for some reason. tried to have starting pos at 50%
-
-let player1Pos =770;
-let player2Pos = 887;
-
-//paddles move to right
-const playGame = () => {
- document.addEventListener('keypress', (event) => {
-   if (event.key === 'z') {
-     player1Pos = player1Pos+ 20;
-            player1.setAttribute("style", "position: absolute; left: " + player1Pos + "px");
-
-   } else if (event.key === 'm') {
-     player2Pos = player2Pos+ 20;
-            player2.setAttribute("style", "position: absolute; left: " + player2Pos + "px");
-
-   }
- })
+// I know you guys reccommended I don't take on a project using canvas because it would be an entirely new thing to learn, but I wanted to
+   //take on the challenge and really test myself. And since I dont really celebrate Christmas, I had nothing stopping me, as far as time restrictions. I hope that's ok. Below
+   //are the resources I used to learn canvas technique.
+//
+//
+//
+//
+//Ok! here's my stuff. code will be written below the comment that explains its purpose. Some of the comments may be overly verbose, but I wanted to show you guys that I know the
+// purpose for everything since it's a technique not covered in class.
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//declare variables. This one was tricky to me. I wasn't sure when to use const or let, and I kept seeing confliction things, so I went
+//with let for everything. Logic being: games are dynamic. please let me know what would have been the proper way
+//to approach this situation.
+let canvas;
+let canvasContext;
+let ballWidth = 50;
+let ballHeight = 50;
+//this code makes the ball start at an angle, instead of straight across. 10 over and 4 down.
+let ballSpeedWidth =10;
+let ballSpeedHeight =4;
+let player1 = 250;
+//action to be taken when browser window opens
+window.onload = function() {
+       //define var. grabs canvas id from html so it can be manipulated with JS
+       canvas = document.getElementById('gameCanvas');
+       //define var. this indicates the project will be 2 dimensional
+       canvasContext = canvas.getContext('2d');
+       //creates the speed of whatever is defined in the createGraphics function. Definitely had to google this.
+       let framesPerSec = 30; //seemed to be the average FPS when googled, so I went with it
+       //invoking functions inside of a function to let the program know WHAT exactly need to be at that speed
+       setInterval(function() {
+           createGraphics();
+           movement();
+       }, 1000/framesPerSec);
+       //invokes the functions.I am not sure if these should go here
+       createGraphics();
+       movement();
 }
-
-playGame();
+//function that creates actual gameboard and paddles and stuff
+let createGraphics = () => {
+       //canvas will be filled in black. Sidenote..fillStyle will always refer to the fillRect that is written right after it.
+       canvasContext.fillStyle = 'black';
+       //this is what defines the actual canvas itself, that will be filled with the above mentioned black.
+       //the first two items , 0 0, represent the placement of the canvas. this means the canvas will be in the top left corner.
+       //the W and H indicate that the whole thing will be filled black.whe whole W and the whole H.
+       canvasContext.fillRect(0,0,canvas.width, canvas.height);
+       //same fillStyle and rect methods to create red ball and white paddles.  it is
+       //important to write these in order because they will layer on top of each other. for example,
+       //if you have a bunch of game pieces all set up on the screen without coloring your canvas first, you will cover up
+       //all of your work with it when you finally do color it.
+       //paddle 1
+       canvasContext.fillStyle = 'white';
+       canvasContext.fillRect(0,100,15,150);
+       //paddle2
+       //canvasContext.fillStyle = 'white';
+       //canvasContext.fillRect(785,100,15,150);
+       //ball.. start position has already been defined above, so the fillRect is referring to it.
+       canvasContext.fillStyle = 'red';
+       //starts creatinf new shape......in canvas, you must write this beginPAth command befroe every line or shape you draw, in order to not have them all connected to each other
+       canvasContext.beginPath();
+       //creates circular shape for ball......There's no way in hell i would have ever figured this part out on my own. thanks, youTube! I read an article on radians and how a circle
+       //is born afterward, to try to understand it better.I guess PI is half a circle? I'm not fully sure. True at the end means the circle is drawn clockwise. counter would be false.
+       canvasContext.arc(ballWidth,ballHeight,10,0,Math.PI*2, true);
+       //fills in circle. there isnt a fillArc command so this command is used instead.
+       canvasContext.fill();
+}
+//function to create functionality. i might move this to ABOVE graphics function. not sure if it matters yet
+let movement = () => {
+       ballWidth = ballWidth + ballSpeedWidth;
+       ballHeight = ballHeight + ballSpeedHeight;
+       //originally I had this hard-coded with  the ballSpeed from my above variable, but my programmer friend made me realize that it would be more
+       //dry to use the variable name, so I wont need to write it again if speed changes or canvas size changes. This code basically says that when the ball hits a side of the canvas, to
+       //bounce back to the opposite direction at the same speed.
+       if (ballWidth >= canvas.width) {
+           ballSpeedWidth = -ballSpeedWidth;
+       }
+   else if (ballWidth <= 0) {
+           ballSpeedWidth = -ballSpeedWidth;
+       }
+       //this part made me crazy for a while. after i ran this code, my screen showed the ball vibrating on my screen instead of bouncing around.
+       //after questioning everythung that is good in this world, I realized i had the  > and < incorrect. after i reversed them, it was fine, and my computer lived to
+       //see another day
+   else    if (ballHeight <= 0) {
+           ballSpeedHeight = -ballSpeedHeight;
+       }
+   else if (ballHeight >= canvas.height) {
+           ballSpeedHeight = -ballSpeedHeight;
+       }
+}
