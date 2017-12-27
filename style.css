@@ -1,1 +1,13 @@
+#gameCanvas {
+ display: block;
+ position: absolute;
+ margin: auto;
+ top: 0;
+ bottom: 0;
+ left: 0;
+ right: 0;
+}
 
+body{
+  background-image: url(https://s3.pixers.pics/pixers/700/FO/70/59/33/9/700_FO7059339_8569780d188fe25ba7205f75bd2314b2.jpg);
+}

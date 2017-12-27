@@ -16,8 +16,8 @@ let canvasContext;
 let ballWidth = 50;
 let ballHeight = 50;
 //this code makes the ball start at an angle, instead of straight across. 10 over and 4 down.
-let ballSpeedWidth =10;
-let ballSpeedHeight =4;
+let ballSpeedWidth =3;
+let ballSpeedHeight =1.5;
 let player1 = 250;
 //action to be taken when browser window opens
 window.onload = function() {
@@ -26,12 +26,11 @@ window.onload = function() {
        //define var. this indicates the project will be 2 dimensional
        canvasContext = canvas.getContext('2d');
        //creates the speed of whatever is defined in the createGraphics function. Definitely had to google this.
-       let framesPerSec = 30; //seemed to be the average FPS when googled, so I went with it
        //invoking functions inside of a function to let the program know WHAT exactly need to be at that speed
        setInterval(function() {
            createGraphics();
            movement();
-       }, 1000/framesPerSec);
+       },);
        //invokes the functions.I am not sure if these should go here
        createGraphics();
        movement();
@@ -49,11 +48,13 @@ let createGraphics = () => {
        //if you have a bunch of game pieces all set up on the screen without coloring your canvas first, you will cover up
        //all of your work with it when you finally do color it.
        //paddle 1
-       canvasContext.fillStyle = 'white';
-       canvasContext.fillRect(0,100,15,150);
+       canvasContext.fillStyle = 'green';
+       canvasContext.fillRect(0,player1,15,150);
+
        //paddle2
        //canvasContext.fillStyle = 'white';
        //canvasContext.fillRect(785,100,15,150);
+
        //ball.. start position has already been defined above, so the fillRect is referring to it.
        canvasContext.fillStyle = 'red';
        //starts creatinf new shape......in canvas, you must write this beginPAth command befroe every line or shape you draw, in order to not have them all connected to each other
