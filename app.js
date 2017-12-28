@@ -35,6 +35,33 @@ window.onload = function() {
            movement();
        },);
 
+////////////////////////////////////////
+canvas.addEventListener('keypress', movePad1, (Event))
+
+let movePad1 =()=> {
+
+    if (e.keyCode === 65) {
+      player1 = player1 + 20; //a
+
+    } else if (e.keyCode === 90) { //z
+      player1 = player1  - 20;
+    }
+  }
+
+
+  canvas.addEventListener('keypress', movePad2, (Event))
+
+  let movePad2 =()=> {
+
+      if (e.keyCode === 75) {
+        player2 = player2 + 20; //k
+
+      } else if (e.keyCode === 77) { //m
+        player2 = player2  - 20;
+      }
+    }
+///////////////////////////////////////
+
 }
 //function that creates actual gameboard and paddles and stuff
 let createGraphics = () => {
@@ -94,3 +121,4 @@ let movement = () => {
 //invokes the functions.I am not sure if these should go here
 createGraphics();
 movement();
+movePad1();
