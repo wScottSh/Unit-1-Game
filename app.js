@@ -13,7 +13,7 @@
 //to approach this situation.
 let canvas;
 let canvasContext;
-let ballWidth = 50;
+let ballX = 50;
 let ballHeight = 50;
 //this code makes the ball start at an angle, instead of straight across. 10 over and 4 down.
 let ballSpeedWidth =3;

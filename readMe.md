@@ -10,11 +10,11 @@ Persona:
 
 User persona 1
 -Likes: subculture, genre film, horror fans, pop culture
--Dislikes:  mainstream culture
+-Dislikes:  mainstream culture.
 
 User persona 2
 Likes: retro gaming, dark humor, obscurity
-Dislikes: millennial shit
+Dislikes: millennial shit.
 
 MVP:
 
