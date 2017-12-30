@@ -13,55 +13,57 @@
 //to approach this situation.
     let canvas;
     let canvasContext;
-    let ballX = 50;
-    let ballY = 50;
+    let fps = 30;
+    let ballX = 100;
+    let ballY = 100;
 //this code makes the ball start at an angle, instead of straight across. 10 over and 4 down.
-    let ballSpeedX =3;
-    let ballSpeedY =1.5;
+    let ballSpeedX =25;
+    let ballSpeedY =10;
     let player1 = 250;
     let player2 = 250;
-    let padX = 15;
-    let padY = 100;
+    let padX = 30;
+    let padY = 175;
+//mouse move
+function calculateMousePos(evt) {
+        var rect = canvas.getBoundingClientRect();
+        var root = document.documentElement;
+        var mouseX = evt.clientX - rect.left - root.scrollLeft;
+        var mouseY = evt.clientY - rect.top - root.scrollTop;
+                    return {
+                        x:mouseX,
+                        y:mouseY
+    };
+}
 //action to be taken when browser window opens
 window.onload = function() {
-       //define var. grabs canvas id from html so it can be manipulated with JS
+       //define id. grabs canvas id from html so it can be manipulated with JS
        canvas = document.getElementById('gameCanvas');
        //define var. this indicates the project will be 2 dimensional
        canvasContext = canvas.getContext('2d');
        //creates the speed of whatever is defined in the createGraphics function. Definitely had to google this.
        //invoking functions inside of a function to let the program know WHAT exactly need to be at that speed
        setInterval(function() {
-           createGraphics();
            movement();
-       },);
-
-////////////////////////////////////////
+           createGraphics();
+              },1000/fps);
+/*///////////////////////////////////////
 canvas.addEventListener('keypress', movePad1, (Event))
-
 let movePad1 =()=> {
-
     if (e.keyCode === 65) {
       player1 = player1 + 20; //a
-
     } else if (e.keyCode === 90) { //z
       player1 = player1  - 20;
     }
   }
-
-
   canvas.addEventListener('keypress', movePad2, (Event))
-
   let movePad2 =()=> {
-
       if (e.keyCode === 75) {
         player2 = player2 + 20; //k
-
       } else if (e.keyCode === 77) { //m
         player2 = player2  - 20;
       }
     }
-///////////////////////////////////////
-
+//////////////////////////////////////*/
 }
 //function that creates actual gameboard and paddles and stuff
 let createGraphics = () => {
@@ -83,7 +85,6 @@ let createGraphics = () => {
        //paddle2
        //canvasContext.fillStyle = 'white';
        //canvasContext.fillRect(785,100,15,150);
-
        //ball.. start position has already been defined above, so the fillRect is referring to it.
        canvasContext.fillStyle = 'red';
        //starts creatinf new shape......in canvas, you must write this beginPAth command befroe every line or shape you draw, in order to not have them all connected to each other
@@ -118,7 +119,3 @@ let movement = () => {
            ballSpeedY = -ballSpeedY;
        }
 }
-//invokes the functions.I am not sure if these should go here
-createGraphics();
-movement();
-movePad1();
