@@ -1,9 +1,48 @@
 #gameCanvas {
- display: block;
- position: absolute;
- margin: auto;
- top: 0;
- bottom: 0;
- left: 0;
- right: 0;
+display: block;
+position: absolute;
+margin: auto;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+border-radius: 3.5%;
+
+}
+
+.button {
+     background-color:#008000 ;
+     border-radius:25px;
+     border:1px solid #18ab29 ;
+     display:inline-block;
+     cursor:pointer;
+     color:#ffffff ;
+     font-family:'Press Start 2P';
+     font-size:17px;
+     padding:16px 31px;
+     color: black;
+     margin-top: 520px;
+
+}
+.buttons{
+ margin-left: 470px
+}
+ .button:hover {
+     background-color:#5cbf2a ;
+}
+h1{
+ text-align: center;
+ font-family:'Press Start 2P';
+ color: #008000 ;
+}
+h3{
+ text-align: center;
+ font-family:'Press Start 2P';
+ color: #008000 ;
+}
+p{
+ text-align: center;
+ font-family:'Press Start 2P';
+ color: #008000 ;
+
 }
