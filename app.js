@@ -48,14 +48,15 @@ canvas.addEventListener('mousemove',
 }
 //centers ball. x*2 + y*2. ball hits left wall and it gets centered and bounces back the other way, adds one point to SB. alerts your loss
 const resetBall = () => {
- if(scoreBoard >= endScore){
-      scoreBoard = resetScore;
- }
-  ballX = canvas.width/2;
-    ballY = canvas.height/2;
-  ballSpeedX = -ballSpeedX;
-  scoreBoard = scoreBoard++;
-      }
+    if(scoreBoard >= endScore){
+         scoreBoard = resetScore;
+         alert("You lose. That's like...really embarrassing.")
+       }
+     ballX = canvas.width/2;
+        ballY = canvas.height/2;
+     ballSpeedX = -ballSpeedX;
+     scoreBoard = scoreBoard++;
+         }
 //mouse move...not sure if i can even verbalize the mouse moving functions
 const calcMousePos=(evt)=> {
         let rect = canvas.getBoundingClientRect();
