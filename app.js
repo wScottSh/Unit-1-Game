@@ -16,7 +16,7 @@ let canvasContext;
 let ballX = 100;
 let ballY = 100;
 //this code makes the ball start at an angle, instead of straight across.
-let ballSpeedX =3;
+let ballSpeedX =4;
 let ballSpeedY =2;
 let player1 = 250;
 let player2 = 250;
@@ -25,7 +25,7 @@ let padY = 90;
 let scoreBoard = 0;
 let  resetScore = 0;
 let pixFromWall = 20;
-let endScore = 5;
+let endScore = 95;
 //action to be taken when browser window opens
 window.onload = function() {
    //define id. grabs canvas id from html so it can be manipulated with JS
@@ -45,6 +45,19 @@ canvas.addEventListener('mousemove',
     let mousePos = calcMousePos(evt);
     player1 = mousePos.y - (padY/2);
 });
+//controls buttons that change speed
+document.getElementById("slow").onclick = function() {
+                ballSpeedX = ballSpeedX /2
+                ballSpeedY = ballSpeedY /2
+        };
+document.getElementById("med").onclick = function() {
+                ballSpeedX = ballSpeedX
+                ballSpeedY = ballSpeedY
+                  };
+  document.getElementById("fast").onclick = function() {
+                ballSpeedX = ballSpeedX *3
+                ballSpeedY = ballSpeedY *3
+                                  };
 }
 //centers ball. x*2 + y*2. ball hits left wall and it gets centered and bounces back the other way, adds one point to SB. alerts your loss
 const resetBall = () => {
@@ -129,3 +142,23 @@ else if (ballY > canvas.height) {
        ballSpeedY = -ballSpeedY;
    }
 }
+///////////////////////////////////////
+//this is my original idea for paddle movement...im not quite sure where i went wrong, but I
+//wanted to keep the code to play with
+/*canvas.addEventListener('keypress', movePad1, (Event))
+let movePad1 =()=> {
+    if (e.keyCode === 65) {
+      padY = padY + 20; //a
+    } else if (e.keyCode === 90) { //z
+      padY = padY  - 20;
+    }
+  }*/
+  /*canvas.addEventListener('keypress', movePad2, (Event))
+  let movePad2 =()=> {
+      if (e.keyCode === 75) {
+        player2 = player2 + 20; //k
+      } else if (e.keyCode === 77) { //m
+        player2 = player2  - 20;
+      }
+    }
+//////////////////////////////////////*
