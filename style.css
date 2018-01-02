@@ -10,6 +10,13 @@ border-radius: 3.5%;
 
 }
 
+.buttonsPos{
+   position: absolute;
+    margin-left: 450px
+
+}
+
+
 .button {
      background-color:#008000 ;
      border-radius:25px;
@@ -21,12 +28,11 @@ border-radius: 3.5%;
      font-size:17px;
      padding:16px 31px;
      color: black;
-     margin-top: 520px;
+     margin-top: 525px;
 
 }
-.buttons{
- margin-left: 470px
-}
+
+
  .button:hover {
      background-color:#5cbf2a ;
 }
@@ -44,5 +50,11 @@ p{
  text-align: center;
  font-family:'Press Start 2P';
  color: #008000 ;
+}
+body {
+    background-image: url(images/brules.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: bottom left;
 
 }

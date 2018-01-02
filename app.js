@@ -1,4 +1,4 @@
-// I know you guys reccommended I don't take on a project using canvas because it would be an entirely new thing to learn, but I wanted to
+// I know you guys recommended I don't take on a project using canvas because it would be an entirely new thing to learn, but I wanted to
    //take on the challenge and really test myself. And since I dont really celebrate Christmas, I had nothing stopping me, as far as time restrictions. I hope that's ok. Below
    //are the resources I used to learn canvas technique.
 //
@@ -25,7 +25,7 @@ let padY = 90;
 let scoreBoard = 0;
 let  resetScore = 0;
 let pixFromWall = 25;
-let endScore = 5000;
+let endScore = 6;
 //action to be taken when browser window opens
 window.onload = function() {
    //define id. grabs canvas id from html so it can be manipulated with JS
@@ -55,15 +55,15 @@ document.getElementById("med").onclick = function() {
                 ballSpeedY = ballSpeedY
                   };
   document.getElementById("fast").onclick = function() {
-                ballSpeedX = ballSpeedX *3
-                ballSpeedY = ballSpeedY *3
+                ballSpeedX = ballSpeedX *2
+                ballSpeedY = ballSpeedY *2
                                   };
 }
 //centers ball. x*2 + y*2. ball hits left wall and it gets centered and bounces back the other way, adds one point to SB. alerts your loss
 const resetBall = () => {
     if(scoreBoard >= endScore){
          scoreBoard = resetScore;
-         alert("You lose. That's like...really embarrassing.")
+         alert("Maybe next time, Hunk.")
        }
      ballX = canvas.width/2;
         ballY = canvas.height/2;
@@ -109,7 +109,7 @@ const createGraphics = () => {
    //fills in circle. there isnt a fillArc command so this command is used instead.
    canvasContext.fill();
    //SCORE text
-   canvasContext.fillText(scoreBoard, 500, 100)
+   canvasContext.fillText(scoreBoard, 400, 100)
 }
 //function to create functionality. i might move this to ABOVE graphics function. not sure if it matters yet
 const movement = () => {
@@ -148,9 +148,9 @@ else if (ballY > canvas.height) {
 /*canvas.addEventListener('keypress', movePad1, (Event))
 let movePad1 =()=> {
     if (e.keyCode === 65) {
-      padY = padY + 20; //a
+      player1 = player1 + 20; //a
     } else if (e.keyCode === 90) { //z
-      padY = padY  - 20;
+      player1 = player1  - 20;
     }
   }*/
   /*canvas.addEventListener('keypress', movePad2, (Event))
