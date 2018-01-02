@@ -23,7 +23,7 @@ let player2 = 250;
 let padX = 15;
 let padY = 90;
 let scoreBoard = 0;
-let  resetScore = 0;
+let resetScore = 0;
 let pixFromWall = 25;
 let endScore = 6;
 //action to be taken when browser window opens
@@ -32,12 +32,13 @@ window.onload = function() {
    canvas = document.getElementById('gameCanvas');
    //define var. this indicates the project will be 2 dimensional
    canvasContext = canvas.getContext('2d');
-   //creates the speed of whatever is defined in the createGraphics function. Definitely had to google this.
-   //invoking functions inside of a function to let the program know WHAT exactly need to be at that speed
-   setInterval(function() {
-       movement();
-       createGraphics();
-          },);
+           //creates the speed of whatever is defined in the createGraphics function. Definitely had to google this.
+           //invoking functions inside of a function to let the program know WHAT exactly need to be at that speed
+           setInterval(function() {
+               movement();
+               createGraphics();
+                  },);
+
 //spent ten million years trying to figure out what was wrong here. i had a misspelling :::sigh:::
 //I needed a lot of help with google for this movement. I dont know wtf is is wrong with the code I was trying originally
 canvas.addEventListener('mousemove',
@@ -49,17 +50,18 @@ canvas.addEventListener('mousemove',
 document.getElementById("slow").onclick = function() {
                 ballSpeedX = ballSpeedX /2
                 ballSpeedY = ballSpeedY /2
-        };
-document.getElementById("med").onclick = function() {
-                ballSpeedX = ballSpeedX
-                ballSpeedY = ballSpeedY
+              };
+      document.getElementById("med").onclick = function() {
+                      ballSpeedX = ballSpeedX
+                      ballSpeedY = ballSpeedY
                   };
-  document.getElementById("fast").onclick = function() {
-                ballSpeedX = ballSpeedX *2
-                ballSpeedY = ballSpeedY *2
-                                  };
-}
+            document.getElementById("fast").onclick = function() {
+                            ballSpeedX = ballSpeedX *2
+                            ballSpeedY = ballSpeedY *2
+                                              };
+            }
 //centers ball. x*2 + y*2. ball hits left wall and it gets centered and bounces back the other way, adds one point to SB. alerts your loss
+
 const resetBall = () => {
     if(scoreBoard >= endScore){
          scoreBoard = resetScore;

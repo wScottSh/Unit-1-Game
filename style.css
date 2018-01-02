@@ -7,34 +7,32 @@ bottom: 0;
 left: 0;
 right: 0;
 border-radius: 3.5%;
+width: 800px;
+height: 450px;
 
 }
 
 .buttonsPos{
-   position: absolute;
-    margin-left: 450px
+
+    margin-left: 32%;
 
 }
 
 
 .button {
      background-color:#008000 ;
-     border-radius:25px;
-     border:1px solid #18ab29 ;
-     display:inline-block;
      cursor:pointer;
-     color:#ffffff ;
      font-family:'Press Start 2P';
-     font-size:17px;
-     padding:16px 31px;
+     font-size:15px;
+     padding:1.5% 3.0%;
      color: black;
-     margin-top: 525px;
-
+     margin-top: 52%;
+     outline: none;
 }
 
 
- .button:hover {
-     background-color:#5cbf2a ;
+.button:hover {
+    background-color:#5cbf2a ;
 }
 h1{
  text-align: center;
@@ -53,8 +51,11 @@ p{
 }
 body {
     background-image: url(images/brules.jpg);
+    background-position: sticky;
+    background-size: 15%;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: bottom left;
+
 
 }
