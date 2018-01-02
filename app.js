@@ -25,7 +25,7 @@ let padY = 90;
 let scoreBoard = 0;
 let resetScore = 0;
 let pixFromWall = 25;
-let endScore = 6;
+let endScore = 10;
 //action to be taken when browser window opens
 window.onload = function() {
    //define id. grabs canvas id from html so it can be manipulated with JS
