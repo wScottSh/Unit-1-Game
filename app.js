@@ -49,15 +49,15 @@ canvas.addEventListener('mousemove',
 //controls buttons that change speed
 document.getElementById("slow").onclick = function() {
                   ballSpeedX = ballSpeedX /2
-                  ballSpeedY = ballSpeedY /2
+                    ballSpeedY = ballSpeedY /2
               };
       document.getElementById("med").onclick = function() {
                       ballSpeedX = ballSpeedX
-                      ballSpeedY = ballSpeedY
+                        ballSpeedY = ballSpeedY
                   };
             document.getElementById("fast").onclick = function() {
                         ballSpeedX = ballSpeedX *2
-                        ballSpeedY = ballSpeedY *2
+                          ballSpeedY = ballSpeedY *2
                                               };
             }
 //centers ball. x*2 + y*2. ball hits left wall and it gets centered and bounces back the other way, adds one point to SB. alerts your loss
@@ -68,9 +68,9 @@ const resetBall = () => {
           alert("Maybe next time, Bimbo.")
        }
              ballX = canvas.width/2;
-             ballY = canvas.height/2;
-             ballSpeedX = -ballSpeedX;
-             scoreBoard = scoreBoard++;
+              ballY = canvas.height/2;
+                ballSpeedX = -ballSpeedX;
+                    scoreBoard = scoreBoard++;
                  }
 //mouse move...not sure if i can even verbalize the mouse moving functions
 const calcMousePos=(evt)=> {
@@ -86,41 +86,41 @@ const calcMousePos=(evt)=> {
 //function that creates actual gameboard and paddles and stuff
 const createGraphics = () => {
      //canvas will be filled in black. Sidenote..fillStyle will always refer to the fillRect that is written right after it.
-     canvasContext.fillStyle = 'black';
+       canvasContext.fillStyle = 'black';
        //this is what defines the actual canvas itself, that will be filled with the above mentioned black.
        //the first two items , 0 0, represent the placement of the canvas. this means the canvas will be in the top left corner.
        //the W and H indicate that the whole thing will be filled black.whe whole W and the whole H.
-     canvasContext.fillRect(0,0,canvas.width, canvas.height);
-         //same fillStyle and rect methods to create red ball and white paddles.  it is
-         //important to write these in order because they will layer on top of each other. for example,
-         //if you have a bunch of game pieces all set up on the screen without coloring your canvas first, you will cover up
-         //all of your work with it when you finally do color it.
-         //paddle 1
-      canvasContext.fillStyle = 'green';
-      canvasContext.fillRect(pixFromWall,player1,padX,padY);
-     //paddle2
-     //canvasContext.fillStyle = 'green';
-     //canvasContext.fillRect(canvas.width - padX,player1,padX,padY);
-     //ball.. start position has already been defined above, so the fillRect is referring to it.
-     canvasContext.fillStyle = 'green';
-     //starts creatinf new shape......in canvas, you must write this beginPAth command befroe every line or shape you draw, in order to not have them all connected to each other
-     canvasContext.beginPath();
-     //creates circular shape for ball......There's no way in hell i would have ever figured this part out on my own. thanks, youTube! I read an article on radians and how a circle
-     //is born afterward, to try to understand it better.I guess PI is half a circle? I'm not fully sure. True at the end means the circle is drawn clockwise. counter would be false.
-     canvasContext.arc(ballX,ballY,10,0,Math.PI*2, true);
-     //fills in circle. there isnt a fillArc command so this command is used instead.
-     canvasContext.fill();
-     //SCORE text
-     canvasContext.fillText(scoreBoard, 400, 100)
+       canvasContext.fillRect(0,0,canvas.width, canvas.height);
+       //same fillStyle and rect methods to create red ball and white paddles.  it is
+       //important to write these in order because they will layer on top of each other. for example,
+       //if you have a bunch of game pieces all set up on the screen without coloring your canvas first, you will cover up
+        //all of your work with it when you finally do color it.
+        //paddle 1
+        canvasContext.fillStyle = 'green';
+        canvasContext.fillRect(pixFromWall,player1,padX,padY);
+        //paddle2 would not function properly
+        //canvasContext.fillStyle = 'green';
+        //canvasContext.fillRect(canvas.width - padX,player1,padX,padY);
+        //ball.. start position has already been defined above, so the fillRect is referring to it.
+        canvasContext.fillStyle = 'green';
+        //starts creatinf new shape......in canvas, you must write this beginPAth command befroe every line or shape you draw, in order to not have them all connected to each other
+        canvasContext.beginPath();
+        //creates circular shape for ball......There's no way in hell i would have ever figured this part out on my own. thanks, youTube! I read an article on radians and how a circle
+        //is born afterward, to try to understand it better.I guess PI is half a circle? I'm not fully sure. True at the end means the circle is drawn clockwise. counter would be false.
+        canvasContext.arc(ballX,ballY,10,0,Math.PI*2, true);
+        //fills in circle. there isnt a fillArc command so this command is used instead.
+        canvasContext.fill();
+        //SCORE text
+        canvasContext.fillText(scoreBoard, 400, 100)
   }
 //function to create functionality. i might move this to ABOVE graphics function. not sure if it matters yet
 const movement = () => {
-//define movement variables
-   ballX = ballX + ballSpeedX;
-   ballY = ballY + ballSpeedY;
-   //originally I had this hard-coded with  the ballSpeed from my above variable, but my programmer friend made me realize that it would be more
-   //dry to use the variable name, so I wont need to write it again if speed changes or canvas size changes. This code basically says that when the ball hits a side of the canvas, to
-   //bounce back to the opposite direction at the same speed.
+      //define movement variables
+         ballX = ballX + ballSpeedX;
+         ballY = ballY + ballSpeedY;
+         //originally I had this hard-coded with  the ballSpeed from my above variable, but my programmer friend made me realize that it would be more
+         //dry to use the variable name, so I wont need to write it again if speed changes or canvas size changes. This code basically says that when the ball hits a side of the canvas, to
+         //bounce back to the opposite direction at the same speed.
        if (ballX > canvas.width) {
           ballSpeedX = -ballSpeedX;
        }
