@@ -115,34 +115,28 @@ const createGraphics = () => {
   }
 //function to create functionality. i might move this to ABOVE graphics function. not sure if it matters yet
 const movement = () => {
-      //define movement variables
-         ballX = ballX + ballSpeedX;
-         ballY = ballY + ballSpeedY;
-         //originally I had this hard-coded with  the ballSpeed from my above variable, but my programmer friend made me realize that it would be more
-         //dry to use the variable name, so I wont need to write it again if speed changes or canvas size changes. This code basically says that when the ball hits a side of the canvas, to
-         //bounce back to the opposite direction at the same speed.
-       if (ballX > canvas.width) {
-          ballSpeedX = -ballSpeedX;
-       }
-if (ballX < pixFromWall+padX) {
-                   if(ballY > player1 && //if ball hits paddle from top or below, AND/ALSO
-                  ballY < player1 + padY) { //if ball hits pad from bottom and above
-                  ballSpeedX = -ballSpeedX; //bounce back to the right
-                }
-            else{
-               scoreBoard ++; //adds a point
-               resetBall();  //otherwise, if ball hits the wall, reset to center
-}
-}
-   //this part made me crazy for a while. after i ran this code, my screen showed the ball vibrating on my screen instead of bouncing around.
-   //after questioning everythung that is good in this world, I realized i had the  > and < incorrect. after i reversed them, it was fine, and my computer lived to
-   //see another day
-else    if (ballY < 0) {
-       ballSpeedY = -ballSpeedY;
-   }
-else if (ballY > canvas.height) {
-       ballSpeedY = -ballSpeedY;
-   }
+
+  //define movement variables
+  ballX = ballX + ballSpeedX;
+  ballY = ballY + ballSpeedY;
+
+  if (ballX > canvas.width) { // defines constant X speed (this will never change)
+    ballSpeedX = -ballSpeedX;
+  }
+
+  // define interaction with ball movement
+  if (ballX < pixFromWall + padX) { // this is for bouncing the ball back from the wall
+    if (ballY > player1 && ballY < player1 + padY) { //if ball hits paddle from top or below, AND/ALSO if ball hits pad from bottom and above
+      ballSpeedX = -ballSpeedX; // bounce back to the right
+    } else {
+      scoreBoard ++; //adds a point
+      resetBall();  //otherwise, if ball hits the wall, reset to center
+    }
+  } else if (ballY < 0) { // this is where I need to update the paddle bounce direction
+    ballSpeedY = -ballSpeedY;
+  } else if (ballY > canvas.height) { // this is for bouncing the ball off the ceiling and floor
+    ballSpeedY = -ballSpeedY;
+  }
 }
 ///////////////////////////////////////
 //this is my original idea for paddle movement...im not quite sure where i went wrong, but I
